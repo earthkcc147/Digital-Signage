@@ -1,4 +1,5 @@
-from . import FOLDER_NAME  # ดึงตัวแปร FOLDER_NAME จาก __init__.py
+
+FOLDER_NAME = 'check'
 
 
 # ฟังก์ชันตรวจสอบและสร้างโฟลเดอร์และไฟล์ถ้ายังไม่มี
