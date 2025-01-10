@@ -1,1 +1,1 @@
-from .main import main_menu
+from .display_sinage_check import main_menu
