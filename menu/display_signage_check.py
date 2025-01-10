@@ -1,9 +1,11 @@
 from function import initialize_file, list_files_in_folder, select_file, add_data, display_data, delete_data, edit_data, search_data, explain_program
-
 import os
 import json
 import datetime
+from colorama import init, Fore, Style, Back
 
+# เริ่มต้น colorama
+init(autoreset=True)
 
 # ฟังก์ชันหลัก
 def main_menu():
@@ -17,15 +19,16 @@ def main_menu():
     while True:
         display_data(file_path)
 
-        print("\n--- ระบบจัดการข้อมูล Digital Signage ---")
-        print("1. เพิ่มข้อมูล")
-        print("2. แสดงข้อมูลทั้งหมด")
-        print("3. แก้ไขข้อมูล")
-        print("4. ลบข้อมูล")
-        print("5. ค้นหาข้อมูล")
-        print("6. อธิบายโปรแกรม")
-        print("7. ออกจากโปรแกรม")
-        choice = input("กรุณาเลือกตัวเลือก (1/2/3/4/5/6): ")
+        print(Fore.YELLOW + Style.BRIGHT + Style.BOLD + "\n--- ระบบจัดการข้อมูล Digital Signage ---")
+        print(Fore.CYAN + "1." + Style.BRIGHT + " เพิ่มข้อมูล  📄")
+        print(Fore.CYAN + "2." + Style.BRIGHT + " แสดงข้อมูลทั้งหมด  📊")
+        print(Fore.CYAN + "3." + Style.BRIGHT + " แก้ไขข้อมูล  ✏️")
+        print(Fore.CYAN + "4." + Style.BRIGHT + " ลบข้อมูล  🗑️")
+        print(Fore.CYAN + "5." + Style.BRIGHT + " ค้นหาข้อมูล  🔍")
+        print(Fore.CYAN + "6." + Style.BRIGHT + " อธิบายโปรแกรม  📖")
+        print(Fore.RED + "7." + Style.BRIGHT + " ออกจากโปรแกรม  ❌")
+        
+        choice = input(Fore.GREEN + "กรุณาเลือกตัวเลือก (1/2/3/4/5/6): ")
 
         if choice == '1':
             add_data(file_path)
@@ -40,7 +43,7 @@ def main_menu():
         elif choice == '6':
             explain_program()
         elif choice == '7':
-            print("ออกจากโปรแกรม")
+            print(Fore.YELLOW + "ออกจากโปรแกรม  👋")
             break
         else:
-            print("กรุณาเลือกตัวเลือกที่ถูกต้อง!")
+            print(Fore.RED + "กรุณาเลือกตัวเลือกที่ถูกต้อง! " + Style.BRIGHT)
