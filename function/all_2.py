@@ -381,8 +381,9 @@ def delete_data(file_path):
 
 
 
+
 # ฟังก์ชันค้นหาข้อมูลจากทุกไฟล์ในโฟลเดอร์
-def search_data(file_path=None):
+def search_data(file_path):
     # ตรวจสอบว่ามีโฟลเดอร์หรือไม่
     if not os.path.exists(FOLDER_NAME):
         print(f"โฟลเดอร์ {FOLDER_NAME} ยังไม่มีอยู่ในระบบ!")
@@ -448,14 +449,16 @@ def search_data(file_path=None):
                 entry.get("ขนาดจอ", "ไม่ระบุ")
             ))
 
-        # รอให้ผู้ใช้กรอก "00" เพื่อย้อนกลับ
-        back_input = input("\nกรุณากรอก '00' เพื่อย้อนกลับ: ").strip()
-        if back_input == "00":
-            print("ย้อนกลับแล้ว!")
-            # ฟังก์ชันนี้จะกลับไปที่จุดเริ่มต้นหรือตัดจบการทำงานของฟังก์ชัน
-            return
+        # รอให้ผู้ใช้กด Enter เพื่อย้อนกลับ
+        input("\nกด Enter เพื่อย้อนกลับ...")  # กด Enter เพื่อย้อนกลับ
+        print("ย้อนกลับแล้ว!")
+        return
     else:
         print(f"ไม่พบข้อมูลที่ตรงกับคำค้นหาของคุณ: '{search_term}'")
+        # รอให้ผู้ใช้กด Enter เพื่อย้อนกลับ
+        input("\nกด Enter เพื่อย้อนกลับ...")  # กด Enter เพื่อย้อนกลับ
+        print("ย้อนกลับแล้ว!")
+        return
 
 
 
