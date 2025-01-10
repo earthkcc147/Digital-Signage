@@ -1,7 +1,7 @@
 import os
 import json
 import datetime
-from . import FOLDER_NAME
+# from . import FOLDER_NAME
 
 
 # FOLDER_NAME = 'check'
