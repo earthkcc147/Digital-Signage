@@ -1,13 +1,7 @@
 import os
 import json
 import datetime
-from function.colour import (
-    print_header, 
-    print_menu, 
-    print_alarm, 
-    print_error, 
-    print_other
-)
+from function.colour import *
 
 
 FOLDER_NAME = 'check'
