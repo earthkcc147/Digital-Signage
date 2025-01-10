@@ -66,7 +66,7 @@ def colored_input2(prompt, color=Fore.GREEN):
         after = prompt[end+1:]
         
         # เปลี่ยนข้อความในวงเล็บเป็นสีเหลืองและตัวหนา
-        in_brackets = Fore.YELLOW + "\033[1m" + f"({in_brackets})" + "\033[0m" + Style.RESET_ALL
+        in_brackets = Fore.YELLOW + "\033[1m" + f"({in_brackets})" + "\033[0m"
         
         # เปลี่ยน y และ n ให้เป็นสีแดง (โดยไม่กระทบข้อความอื่นๆ)
         in_brackets = in_brackets.replace('y', Fore.RED + 'y' + Style.RESET_ALL)
