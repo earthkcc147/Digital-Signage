@@ -39,7 +39,7 @@ def list_files_in_folder():
         os.makedirs(FOLDER_NAME)
         print_header(f"🎉 สร้างโฟลเดอร์ {FOLDER_NAME} เรียบร้อยแล้ว 🎉")
 
-    print("\n--- ไฟล์ที่มีอยู่ในโฟลเดอร์ 'check' ---")
+    print_header("\n--- ไฟล์ที่มีอยู่ในโฟลเดอร์ 'check' ---")
     files = os.listdir(FOLDER_NAME)
     if files:
         for idx, file in enumerate(files, 1):
