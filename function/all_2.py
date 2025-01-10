@@ -114,12 +114,12 @@ def display_data(file_path):
         with open(file_path, 'r', encoding='utf-8') as file:
             data = json.load(file)
             if data:
-                print("\n{:<5} {:<20} {:<15} {:<30} {:<20} {:<20}".format(
+                print_number("\n{:<5} {:<20} {:<15} {:<30} {:<20} {:<20}".format(
                     "ลำดับ", "รายการ", "S/N", "อาการ", "ขนาดจอ", "วันที่และเวลาที่ตรวจ"
                 ))
                 print_line()
                 for entry in data:
-                    print("{:<5} {:<20} {:<15} {:<30} {:<20} {:<20}".format(
+                    print_number("{:<5} {:<20} {:<15} {:<30} {:<20} {:<20}".format(
                         entry["ลำดับ"],
                         entry["รายการ"],
                         entry["s/n"],
@@ -128,9 +128,9 @@ def display_data(file_path):
                         entry["วันที่และเวลาที่ตรวจ"]
                     ))
             else:
-                print("ยังไม่มีข้อมูลในระบบ")
+                print_alarm("⚠️ ยังไม่มีข้อมูลในระบบ ⚠️")
     else:
-        print("ยังไม่มีข้อมูลในระบบ")
+        print_error("⚠️ ยังไม่มีข้อมูลในระบบ ⚠️")
 
 
 
