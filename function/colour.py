@@ -16,7 +16,7 @@ def print_line2(text):
 
 # ฟังก์ชันพิมพ์ข้อความหัวข้อ (header) โดยใช้สีเหลืองและตัวหนา
 def print_header(text):
-    print(Fore.YELLOW + Style.BRIGHT + "\033[1m" + text + "\033[0m")
+    print(Fore.BLUE + Style.BRIGHT + "\033[1m" + text + "\033[0m")
 
 def print_number(text):
     print(Fore.CYAN + Style.BRIGHT + "\033[1m" + text + "\033[0m")
