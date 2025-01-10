@@ -57,7 +57,6 @@ def colored_input1(prompt, color=Fore.GREEN):
 
 
 
-
 def colored_input2(prompt, color=Fore.GREEN):
     # หาคำในวงเล็บ
     start = prompt.find("(")
@@ -71,14 +70,9 @@ def colored_input2(prompt, color=Fore.GREEN):
         prompt = before + Fore.YELLOW + "\033[1m" + f"({in_brackets})" + "\033[0m" + Style.RESET_ALL + after
 
     # แทนที่คำว่า "Enter", "y", "n" ด้วยสีแดง
-    prompt = prompt.replace("Enter", Fore.RED + "Enter" + Style.RESET_ALL)
-    prompt = prompt.replace("y", Fore.RED + "y" + Style.RESET_ALL)
-    prompt = prompt.replace("n", Fore.RED + "n" + Style.RESET_ALL)
-
-    # หลังจากนั้นจะใช้สีเหลืองสำหรับข้อความที่เหลือ
-    prompt = prompt.replace("Enter", Fore.YELLOW + "Enter" + Style.RESET_ALL)
-    prompt = prompt.replace("y", Fore.YELLOW + "y" + Style.RESET_ALL)
-    prompt = prompt.replace("n", Fore.YELLOW + "n" + Style.RESET_ALL)
+    prompt = prompt.replace("Enter", Fore.RED + "Enter")
+    prompt = prompt.replace("y", Fore.RED + "y")
+    prompt = prompt.replace("n", Fore.RED + "n")
 
     return input(color + prompt + Style.RESET_ALL).strip().lower()
 
