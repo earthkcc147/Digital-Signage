@@ -4,8 +4,10 @@ import json
 import datetime
 from colorama import init, Fore, Style, Back
 
+
 # ฟังก์ชันหลัก
 def main_menu():
+    check_display_signage()
     print_line()
     # เลือกไฟล์
     filename = select_file()
