@@ -55,6 +55,8 @@ def colored_input1(prompt, color=Fore.GREEN):
 
 
 
+
+
 def colored_input2(prompt, color=Fore.GREEN):
     # หาคำในวงเล็บ
     start = prompt.find("(")
@@ -74,6 +76,8 @@ def colored_input2(prompt, color=Fore.GREEN):
     if user_input == '00' or user_input == 'y' or user_input == 'n' or user_input == '':
         # แสดงเป็นสีแดงสำหรับค่าที่ตรวจจับ
         return Fore.RED + user_input + Style.RESET_ALL
+    
+    # ถ้าไม่ใช่อักษรที่ตรวจจับ ก็จะส่งคืนข้อความในสีเดิม
     return user_input
 
 # ตัวอย่างการใช้
