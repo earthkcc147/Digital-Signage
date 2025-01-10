@@ -149,17 +149,33 @@ def add_data(file_path):
         else:
             break
 
-    symptom = input("กรุณาใส่อาการ (ถ้าไม่มีกรอกกด Enter เพื่อใช้ค่า 'จอปกติดี'): ")
+    # รับข้อมูลอาการ (ให้เลือกจาก y, n หรือกรอกเอง)
+    while True:
+        symptom_choice = input("กรุณาเลือกอาการจอ (y = จอปกติ, n = ไม่ระบุ, หรือกรอกเอง): ").strip().lower()
+        
+        if symptom_choice == 'y':
+            symptom = "จอปกติดี"
+            break
+        elif symptom_choice == 'n':
+            symptom = "ไม่ระบุ"
+            break
+        elif symptom_choice:
+            symptom = symptom_choice  # ถ้ากรอกเอง
+            break
+        else:
+            print("กรุณาเลือกอาการที่ถูกต้อง!")
 
-    # ถ้าอาการไม่กรอกให้กำหนดเป็น 'จอปกติดี'
-    if not symptom.strip():  # ถ้าค่าที่กรอกมาเป็นค่าว่าง
-        symptom = "จอปกติดี"  # กำหนดอาการเป็น "จอปกติดี"
-
-    screen_size = input("กรุณาใส่ขนาดจอ (ถ้าไม่ระบุให้กด Enter): ").strip()
-
-    # ถ้าไม่กรอกขนาดจอให้กำหนดเป็น 'ไม่ระบุ'
-    if not screen_size:
-        screen_size = "ไม่ระบุ"
+    # รับข้อมูลขนาดจอ (เลือก n สำหรับ 'ไม่ระบุ')
+    while True:
+        screen_size = input("กรุณาใส่ขนาดจอ (ถ้าไม่ระบุให้ใส่ n): ").strip().lower()
+        
+        if screen_size == 'n':
+            screen_size = "ไม่ระบุ"
+            break
+        elif screen_size:
+            break  # ถ้ามีการกรอกขนาดจอเอง
+        else:
+            print("กรุณาใส่ขนาดจอหรือเลือก 'n' สำหรับไม่ระบุ!")
 
     timestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
