@@ -45,7 +45,7 @@ def list_files_in_folder():
         for idx, file in enumerate(files, 1):
             print_number(f"{idx}. {file}")
     else:
-        print_error("ยังไม่มีไฟล์ในโฟลเดอร์")
+        print_alarm("⚠️ ยังไม่มีไฟล์ในโฟลเดอร์ ⚠️")
 
 
 
