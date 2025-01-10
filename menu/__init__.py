@@ -1,1 +1,1 @@
-from .display_sinage_check import main_menu
+from .display_signage_check import main_menu
