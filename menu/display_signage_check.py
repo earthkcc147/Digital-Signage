@@ -13,6 +13,8 @@ def main_menu():
     file_path = initialize_file(filename)
 
     while True:
+        display_data(file_path)
+
         print("\n--- ระบบจัดการข้อมูล Digital Signage ---")
         print("1. เพิ่มข้อมูล")
         print("2. แสดงข้อมูลทั้งหมด")
