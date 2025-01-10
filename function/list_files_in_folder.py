@@ -1,3 +1,9 @@
+import os
+import json
+import datetime
+
+FOLDER_NAME = 'check'
+
 # ฟังก์ชันแสดงรายชื่อไฟล์ในโฟลเดอร์ check
 def list_files_in_folder():
     # ตรวจสอบและสร้างโฟลเดอร์ 'check' ถ้ายังไม่มี
