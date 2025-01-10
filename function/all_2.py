@@ -21,7 +21,7 @@ def initialize_file(filename):
     if not os.path.exists(file_path):
         with open(file_path, 'w', encoding='utf-8') as file:
             json.dump([], file, ensure_ascii=False, indent=4)  # สร้างไฟล์พร้อมข้อมูลว่าง
-        print_alarm(f"📁 สร้างไฟล์ {file_path} เรียบร้อยแล้ว 📁")
+        print_complete(f"✅ สร้างไฟล์ {file_path} เรียบร้อยแล้ว ✅")
     else:
         print_error(f"❌ ไฟล์ {file_path} มีอยู่แล้ว ไม่ต้องสร้างใหม่ ❌")
 
