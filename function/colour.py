@@ -38,7 +38,7 @@ def colored_input(prompt, color=Fore.GREEN):
 
 
 # ฟังก์ชันสำหรับรับ input และกำหนดสีให้ข้อความ โดยมีข้อความในวงเล็บเป็นสีเหลืองและตัวหนา
-def colored_input1(prompt, color=Fore.GREEN):
+def colored_input2(prompt, color=Fore.GREEN):
     # หาคำในวงเล็บ
     start = prompt.find("(")
     end = prompt.find(")")
@@ -54,27 +54,6 @@ def colored_input1(prompt, color=Fore.GREEN):
 
 
 
-
-
-
-def colored_input2(prompt, color=Fore.GREEN):
-    # หาคำในวงเล็บ
-    start = prompt.find("(")
-    end = prompt.find(")")
-    if start != -1 and end != -1:
-        # แยกข้อความในวงเล็บและนอกวงเล็บ
-        before = prompt[:start]
-        in_brackets = prompt[start+1:end]
-        after = prompt[end+1:]
-        # เปลี่ยนข้อความในวงเล็บเป็นสีเหลืองและตัวหนา
-        prompt = before + Fore.YELLOW + "\033[1m" + f"({in_brackets})" + "\033[0m" + Style.RESET_ALL + after
-
-    # แทนที่คำว่า "Enter", "y", "n" ด้วยสีแดง และไม่รีเซ็ตสีหลังคำที่เปลี่ยนเป็นสีแดง
-    prompt = prompt.replace("Enter", Fore.RED + "Enter")
-    prompt = prompt.replace("y", Fore.RED + "y")
-    prompt = prompt.replace("n", Fore.RED + "n")
-
-    return input(color + prompt + Style.RESET_ALL).strip().lower()
 
 
 
