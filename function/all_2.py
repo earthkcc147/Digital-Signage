@@ -43,7 +43,7 @@ def list_files_in_folder():
     files = os.listdir(FOLDER_NAME)
     if files:
         for idx, file in enumerate(files, 1):
-            print(f"{Fore.CYAN}{Style.BRIGHT}{idx}. {file}")
+            print_number(f"{idx}. {file}")
     else:
         print_error("ยังไม่มีไฟล์ในโฟลเดอร์")
 
