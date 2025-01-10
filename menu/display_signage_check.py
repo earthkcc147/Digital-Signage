@@ -1,5 +1,5 @@
 # ฟังก์ชันหลัก
-def main():
+def main_menu():
     # เลือกไฟล์
     filename = select_file()
 
