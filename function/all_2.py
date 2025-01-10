@@ -95,6 +95,35 @@ def list_files_in_folder():
 
 
 
+# ฟังก์ชันแสดงข้อมูลทั้งหมด
+def display_data(file_path):
+    if os.path.exists(file_path):
+        with open(file_path, 'r', encoding='utf-8') as file:
+            data = json.load(file)
+            if data:
+                print("\n{:<5} {:<20} {:<15} {:<30} {:<20} {:<20}".format(
+                    "ลำดับ", "รายการ", "S/N", "อาการ", "ขนาดจอ", "วันที่และเวลาที่ตรวจ"
+                ))
+                print("-" * 100)
+                for entry in data:
+                    print("{:<5} {:<20} {:<15} {:<30} {:<20} {:<20}".format(
+                        entry["ลำดับ"],
+                        entry["รายการ"],
+                        entry["s/n"],
+                        entry["อาการ"],
+                        entry["ขนาดจอ"],
+                        entry["วันที่และเวลาที่ตรวจ"]
+                    ))
+            else:
+                print("ยังไม่มีข้อมูลในระบบ")
+    else:
+        print("ยังไม่มีข้อมูลในระบบ")
+
+
+
+
+
+
 # ฟังก์ชันเพิ่มข้อมูลใหม่
 def add_data(file_path):
     # อ่านไฟล์ถ้ามีอยู่
