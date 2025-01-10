@@ -8,7 +8,6 @@ from function.colour import *
 FOLDER_NAME = 'check'
 
 
-
 # ฟังก์ชันตรวจสอบและสร้างโฟลเดอร์และไฟล์ถ้ายังไม่มี
 def initialize_file(filename):
     # ตรวจสอบและสร้างโฟลเดอร์ถ้ายังไม่มี
@@ -32,6 +31,8 @@ def initialize_file(filename):
 
 
 
+
+
 # ฟังก์ชันแสดงรายชื่อไฟล์ในโฟลเดอร์ check
 def list_files_in_folder():
     # ตรวจสอบและสร้างโฟลเดอร์ 'check' ถ้ายังไม่มี
@@ -46,6 +47,7 @@ def list_files_in_folder():
             print_number(f"{idx}. {file}\n")
     else:
         print_error("\n❌ ยังไม่มีไฟล์ในโฟลเดอร์ ❌")
+
 
 
 
@@ -137,6 +139,8 @@ def display_data(file_path):
 
 
 
+
+
 # ฟังก์ชันเพิ่มข้อมูลใหม่
 def add_data(file_path):
     # อ่านไฟล์ถ้ามีอยู่
@@ -209,6 +213,8 @@ def add_data(file_path):
         json.dump(data, file, ensure_ascii=False, indent=4)
 
     print_complete("✅ บันทึกข้อมูลสำเร็จ! ✅")
+
+
 
 
 
@@ -330,6 +336,8 @@ def edit_data(file_path):
 
 
 
+
+
 # ฟังก์ชันลบข้อมูล
 def delete_data(file_path):
     # อ่านไฟล์ถ้ามีอยู่
@@ -403,6 +411,8 @@ def delete_data(file_path):
         print_complete(f"✅ ข้อมูลของลำดับ {delete_index} ถูกลบเรียบร้อยแล้ว! ✅")
     else:
         print_complete("✅ ยกเลิกการลบข้อมูล. ✅")
+
+
 
 
 
@@ -496,6 +506,8 @@ def search_data(file_path):
 
 
 
+
+
 def explain_program():
     explanation = """
     โปรแกรมนี้ออกแบบมาเพื่อจัดการข้อมูลในรูปแบบไฟล์ JSON ภายในโฟลเดอร์ 'check' ที่จะเก็บข้อมูล
@@ -541,4 +553,7 @@ def explain_program():
     - โปรแกรมจะทำงานร่วมกับไฟล์ JSON เหล่านี้เพื่อเพิ่ม, แก้ไข, แสดงข้อมูล หรือจัดการข้อมูลในรูปแบบต่างๆ ตามที่ผู้ใช้ต้องการ
     """
 
-    print(explanation)
+    print_header("คำอธิบายโปรแกรม:")
+    print_line()
+    print_other(explanation)
+    print_line()
