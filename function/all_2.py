@@ -81,12 +81,18 @@ def convert_json_to_xlsx():
         excel_path = os.path.join(EXCEL_FOLDER, excel_filename)
 
         # แสดงการยืนยันก่อนการแปลง
-        confirm = colored_input(f"⚠️ คุณต้องการแปลงไฟล์ {filename} เป็น {excel_filename} ไหม? (y/n): ").strip().lower()
-
-        if confirm != 'n':
-            print_alarm("❌ การแปลงไฟล์ถูกยกเลิก ❌")
-            print_line()
-            return
+        while True:
+            confirm = colored_input(f"⚠️ คุณต้องการแปลงไฟล์ {filename} เป็น {excel_filename} ไหม? (y/n): ").strip().lower()
+            
+            if confirm == 'y':
+                break  # ถ้าผู้ใช้กรอก 'y' จะออกจากลูปและทำการแปลงไฟล์
+            elif confirm == 'n':
+                print_alarm("❌ การแปลงไฟล์ถูกยกเลิก ❌")
+                print_line()
+                return
+            else:
+                print_alarm("⚠️ กรุณากรอก 'y' หรือ 'n' เท่านั้น ⚠️")
+                print_line()
 
         # สร้าง workbook และ sheet
         wb = openpyxl.Workbook()
