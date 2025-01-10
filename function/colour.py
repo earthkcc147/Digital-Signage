@@ -21,6 +21,10 @@ def print_alarm(text):
 def print_error(text):
     print(Fore.RED + Style.BRIGHT + text)
 
+# ฟังก์ชันพิมพ์ข้อความแสดงความสำเร็จ (complete) โดยใช้สีเขียวและตัวอักษรหนา
+def print_complete(text):
+    print(Fore.GREEN + Style.BRIGHT + text)
+
 # ฟังก์ชันพิมพ์ข้อความอื่นๆ (other) โดยใช้สีเขียว
 def print_other(text):
     print(Fore.GREEN + text)
