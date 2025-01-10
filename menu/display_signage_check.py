@@ -28,7 +28,7 @@ def main_menu():
         print_menu("7. ออกจากโปรแกรม  ❌")
         
         # รับค่าจากผู้ใช้
-        choice = input(Fore.GREEN + "กรุณาเลือกตัวเลือก (1/2/3/4/5/6): ")
+        choice = input(Fore.GREEN + "กรุณาเลือกตัวเลือก (1/2/3/4/5/6): " + Style.RESET_ALL)
 
         if choice == '1':
             add_data(file_path)
