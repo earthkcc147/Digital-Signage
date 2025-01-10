@@ -19,7 +19,8 @@ def main_menu():
     while True:
         display_data(file_path)
 
-        print(Fore.YELLOW + Style.BRIGHT + Style.BOLD + "\n--- ระบบจัดการข้อมูล Digital Signage ---")
+        # แสดงหัวข้อที่เป็น bold และ bright
+        print(Fore.YELLOW + "\033[1m" + Style.BRIGHT + "--- ระบบจัดการข้อมูล Digital Signage ---" + "\033[0m")
         print(Fore.CYAN + "1." + Style.BRIGHT + " เพิ่มข้อมูล  📄")
         print(Fore.CYAN + "2." + Style.BRIGHT + " แสดงข้อมูลทั้งหมด  📊")
         print(Fore.CYAN + "3." + Style.BRIGHT + " แก้ไขข้อมูล  ✏️")
