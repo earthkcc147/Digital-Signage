@@ -28,6 +28,23 @@ def colored_input(prompt, color=Fore.GREEN):
     return input(color + prompt + Style.RESET_ALL)
 
 
+# ฟังก์ชันสำหรับรับ input และกำหนดสีให้ข้อความ โดยมีข้อความในวงเล็บเป็นสีเหลือง
+def colored_input2(prompt):
+    # หาคำในวงเล็บ
+    start = prompt.find("(")
+    end = prompt.find(")")
+    if start != -1 and end != -1:
+        # แยกข้อความในวงเล็บและนอกวงเล็บ
+        before = prompt[:start]
+        in_brackets = prompt[start+1:end]
+        after = prompt[end+1:]
+        # เปลี่ยนข้อความในวงเล็บเป็นสีเหลือง
+        prompt = before + Fore.YELLOW + f"({in_brackets})" + Style.RESET_ALL + after
+    
+    return input(prompt).strip().lower()
+
+
+
 # ฟังก์ชันพิมพ์ข้อความเมนู (menu) โดยใช้สีน้ำเงินอ่อนและตัวอักษรหนา
 def print_menu(text):
     print(Fore.CYAN + Style.BRIGHT + text)
