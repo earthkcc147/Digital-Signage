@@ -8,7 +8,6 @@ import datetime
 # ฟังก์ชันหลัก
 def main_menu():
 
-    explain_program()
     # เลือกไฟล์
     filename = select_file()
 
@@ -24,7 +23,8 @@ def main_menu():
         print("3. แก้ไขข้อมูล")
         print("4. ลบข้อมูล")
         print("5. ค้นหาข้อมูล")
-        print("6. ออกจากโปรแกรม")
+        print("6. อธิบายโปรแกรม")
+        print("7. ออกจากโปรแกรม")
         choice = input("กรุณาเลือกตัวเลือก (1/2/3/4/5/6): ")
 
         if choice == '1':
@@ -36,8 +36,10 @@ def main_menu():
         elif choice == '4':
             delete_data(file_path)
         elif choice == '5':
-            search_data(file_path)  # เรียกใช้งานฟังก์ชันค้นหา
+            search_data(file_path)  
         elif choice == '6':
+            explain_program()
+        elif choice == '7':
             print("ออกจากโปรแกรม")
             break
         else:
