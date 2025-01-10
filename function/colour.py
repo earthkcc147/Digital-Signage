@@ -39,8 +39,9 @@ def colored_input2(prompt, color=Fore.GREEN):
         in_brackets = prompt[start+1:end]
         after = prompt[end+1:]
         # เปลี่ยนข้อความในวงเล็บเป็นสีเหลืองและตัวหนา
-        prompt = before + Fore.YELLOW + "\033[1m" + f"({in_brackets})" + "\033[0m" + Style.RESET_ALL + after
+        prompt = before + Fore.YELLOW + "\033[1m" + f"({in_brackets})" + "\033[0m" + after
     
+    # แสดงข้อความพร้อมรับ input โดยให้ข้อความหลังจากวงเล็บเป็นสีที่กำหนด
     return input(color + prompt + Style.RESET_ALL).strip().lower()
 
 
