@@ -1,6 +1,6 @@
 from colorama import init, Fore, Style, Back
 import os
-
+import re
 
 # เริ่มต้น colorama เพื่อให้สามารถใช้สีในข้อความได้
 init(autoreset=True)
@@ -39,7 +39,7 @@ def colored_input(prompt, color=Fore.GREEN):
 
 
 # ฟังก์ชันสำหรับรับ input และกำหนดสีให้ข้อความ โดยมีข้อความในวงเล็บเป็นสีเหลืองและตัวหนา
-def colored_input2(prompt, color=Fore.GREEN):
+def colored_input1(prompt, color=Fore.GREEN):
     # หาคำในวงเล็บ
     start = prompt.find("(")
     end = prompt.find(")")
@@ -52,6 +52,32 @@ def colored_input2(prompt, color=Fore.GREEN):
         prompt = before + Fore.YELLOW + "\033[1m" + f"({in_brackets})" + "\033[0m" + Style.RESET_ALL + after
     
     return input(color + prompt + Style.RESET_ALL).strip().lower()
+
+
+
+# เริ่มต้น colorama เพื่อให้สามารถใช้สีในข้อความได้
+init(autoreset=True)
+
+# ฟังก์ชันสำหรับรับ input และกำหนดสีให้ข้อความ โดยมีข้อความในวงเล็บเป็นสีเหลืองและตัวหนา
+def colored_input2(prompt, color=Fore.GREEN):
+    # หาคำในวงเล็บ
+    start = prompt.find("(")
+    end = prompt.find(")")
+    if start != -1 and end != -1:
+        # แยกข้อความในวงเล็บและนอกวงเล็บ
+        before = prompt[:start]
+        in_brackets = prompt[start+1:end]
+        after = prompt[end+1:]
+        # เปลี่ยนข้อความในวงเล็บเป็นสีเหลืองและตัวหนา
+        prompt = before + Fore.YELLOW + "\033[1m" + f"({in_brackets})" + "\033[0m" + Style.RESET_ALL + after
+    
+    # เปลี่ยนคำที่ต้องการให้เป็นสีส้ม
+    prompt = re.sub(r"(Enter|y|n)", lambda match: Fore.RED + match.group(0) + Style.RESET_ALL, prompt)
+    
+    return input(color + prompt + Style.RESET_ALL).strip().lower()
+
+# ตัวอย่างการใช้งาน
+symptom_choice = colored_input2("\nกด Enter เพื่อย้อนกลับ... หรือกรอก y = จอปกติ, n = ไม่ระบุ: ")
 
 
 
