@@ -217,6 +217,7 @@ def add_data(file_path):
         json.dump(data, file, ensure_ascii=False, indent=4)
 
     print_complete("✅ บันทึกข้อมูลสำเร็จ! ✅")
+    print_line()
 
 
 
