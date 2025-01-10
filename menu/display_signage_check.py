@@ -23,10 +23,10 @@ def main_menu():
         print_menu("1. เพิ่มข้อมูล  📄")
         print_menu("2. แสดงข้อมูลทั้งหมด  📊")
         print_menu("3. แก้ไขข้อมูล  ✏️")
-        print_menu("4. ลบข้อมูล  🗑️")
+        print_menu("4. ลบข้อมูลในไฟล์  🗑️")
         print_menu("5. ค้นหาข้อมูล  🔍")
         print_menu("6. อธิบายโปรแกรม  📖")
-        print_menu("7. ลบไฟล์  🚯")
+        print_menu("7. ลบไฟล์  🆑")
         print_menu("8. ออกจากโปรแกรม  ❌\n")
 
         # รับค่าจากผู้ใช้
