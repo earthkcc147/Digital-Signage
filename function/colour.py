@@ -28,7 +28,7 @@ def colored_input(prompt, color=Fore.GREEN):
     return input(color + prompt + Style.RESET_ALL)
 
 
-# ฟังก์ชันสำหรับรับ input และกำหนดสีให้ข้อความ โดยมีข้อความในวงเล็บเป็นสีเหลือง
+# ฟังก์ชันสำหรับรับ input และกำหนดสีให้ข้อความ โดยมีข้อความในวงเล็บเป็นสีเหลืองและตัวหนา
 def colored_input2(prompt, color=Fore.GREEN):
     # หาคำในวงเล็บ
     start = prompt.find("(")
@@ -38,8 +38,8 @@ def colored_input2(prompt, color=Fore.GREEN):
         before = prompt[:start]
         in_brackets = prompt[start+1:end]
         after = prompt[end+1:]
-        # เปลี่ยนข้อความในวงเล็บเป็นสีเหลือง
-        prompt = before + Fore.YELLOW + f"({in_brackets})" + Style.RESET_ALL + after
+        # เปลี่ยนข้อความในวงเล็บเป็นสีเหลืองและตัวหนา
+        prompt = before + Fore.YELLOW + "\033[1m" + f"({in_brackets})" + "\033[0m" + Style.RESET_ALL + after
     
     return input(color + prompt + Style.RESET_ALL).strip().lower()
 
