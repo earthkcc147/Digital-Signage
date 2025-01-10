@@ -99,6 +99,10 @@ def convert_json_to_xlsx():
         ws = wb.active
         ws.title = "Data"
 
+        # ตั้งชื่อแผ่นงานให้ตรงกับชื่อไฟล์โดยไม่มีนามสกุล
+        # sheet_name = os.path.splitext(filename)[0]  # เอาชื่อไฟล์ที่ไม่มีนามสกุล
+        # ws.title = sheet_name
+
         # กำหนดหัวข้อคอลัมน์ (ไม่รวม "วันที่และเวลาที่ตรวจ")
         columns = ["ลำดับ", "รายการ", "S/N", "อาการ", "ขนาดจอ"]
         ws.append(columns)
