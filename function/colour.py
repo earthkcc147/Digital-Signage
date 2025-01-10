@@ -38,7 +38,7 @@ def colored_input(prompt, color=Fore.GREEN):
 
 
 # ฟังก์ชันสำหรับรับ input และกำหนดสีให้ข้อความ โดยมีข้อความในวงเล็บเป็นสีเหลืองและตัวหนา
-def colored_input2(prompt, color=Fore.GREEN):
+def colored_input1(prompt, color=Fore.GREEN):
     # หาคำในวงเล็บ
     start = prompt.find("(")
     end = prompt.find(")")
@@ -49,6 +49,30 @@ def colored_input2(prompt, color=Fore.GREEN):
         after = prompt[end+1:]
         # เปลี่ยนข้อความในวงเล็บเป็นสีเหลืองและตัวหนา
         prompt = before + Fore.YELLOW + "\033[1m" + f"({in_brackets})" + "\033[0m" + Style.RESET_ALL + after
+    
+    return input(color + prompt + Style.RESET_ALL).strip().lower()
+
+
+
+# ฟังก์ชันสำหรับรับ input และกำหนดสีให้ข้อความ โดยมีข้อความในวงเล็บเป็นสีเหลืองและตัวหนา
+def colored_input2(prompt, color=Fore.GREEN):
+    # หาคำในวงเล็บ
+    start = prompt.find("(")
+    end = prompt.find(")")
+    if start != -1 and end != -1:
+        # แยกข้อความในวงเล็บและนอกวงเล็บ
+        before = prompt[:start]
+        in_brackets = prompt[start+1:end]
+        after = prompt[end+1:]
+        
+        # เปลี่ยนข้อความในวงเล็บเป็นสีเหลืองและตัวหนา
+        in_brackets = Fore.YELLOW + "\033[1m" + f"({in_brackets})" + "\033[0m" + Style.RESET_ALL
+        
+        # เปลี่ยน y และ n ให้เป็นสีแดง (โดยไม่กระทบข้อความอื่นๆ)
+        in_brackets = in_brackets.replace('y', Fore.RED + 'y' + Style.RESET_ALL)
+        in_brackets = in_brackets.replace('n', Fore.RED + 'n' + Style.RESET_ALL)
+        
+        prompt = before + in_brackets + after
     
     return input(color + prompt + Style.RESET_ALL).strip().lower()
 
