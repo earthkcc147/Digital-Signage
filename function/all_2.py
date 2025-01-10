@@ -418,11 +418,11 @@ def search_data(file_path=None):
         filtered_data = [
             {**entry, "file_name": file_name}  # เพิ่มชื่อไฟล์ในผลลัพธ์
             for entry in data
-            if search_term in str(entry.get("ลำดับ", ""))
-            or search_term in entry.get("รายการ", "")
-            or search_term in entry.get("s/n", "")
-            or search_term in entry.get("อาการ", "")
-            or search_term in entry.get("ขนาดจอ", "ไม่ระบุ")
+            if (search_term.lower() in str(entry.get("ลำดับ", "")).lower() or
+                search_term.lower() in entry.get("รายการ", "").lower() or
+                search_term.lower() in entry.get("s/n", "").lower() or
+                search_term.lower() in entry.get("อาการ", "").lower() or
+                search_term.lower() in entry.get("ขนาดจอ", "ไม่ระบุ").lower())
         ]
 
         # เพิ่มข้อมูลที่ค้นพบในผลลัพธ์
