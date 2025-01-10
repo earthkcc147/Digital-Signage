@@ -2,14 +2,10 @@ from function import initialize_file, list_files_in_folder, select_file, add_dat
 import os
 import json
 import datetime
-from colorama import init, Fore, Style, Back
-
-# เริ่มต้น colorama
-init(autoreset=True)
+from function import print_header, print_menu, print_alarm, print_error
 
 # ฟังก์ชันหลัก
 def main_menu():
-
     # เลือกไฟล์
     filename = select_file()
 
@@ -20,16 +16,18 @@ def main_menu():
         display_data(file_path)
 
         # แสดงหัวข้อที่เป็น bold และ bright
-        print(Fore.YELLOW + "\033[1m" + Style.BRIGHT + "--- ระบบจัดการข้อมูล Digital Signage ---" + "\033[0m")
+        print_header("--- ระบบจัดการข้อมูล Digital Signage ---")
         
-        print(Fore.CYAN + "1." + Style.BRIGHT + " เพิ่มข้อมูล  📄")
-        print(Fore.CYAN + "2." + Style.BRIGHT + " แสดงข้อมูลทั้งหมด  📊")
-        print(Fore.CYAN + "3." + Style.BRIGHT + " แก้ไขข้อมูล  ✏️")
-        print(Fore.CYAN + "4." + Style.BRIGHT + " ลบข้อมูล  🗑️")
-        print(Fore.CYAN + "5." + Style.BRIGHT + " ค้นหาข้อมูล  🔍")
-        print(Fore.CYAN + "6." + Style.BRIGHT + " อธิบายโปรแกรม  📖")
-        print(Fore.RED + "7." + Style.BRIGHT + " ออกจากโปรแกรม  ❌")
+        # ใช้ฟังก์ชัน print_menu สำหรับเมนู
+        print_menu("1. เพิ่มข้อมูล  📄")
+        print_menu("2. แสดงข้อมูลทั้งหมด  📊")
+        print_menu("3. แก้ไขข้อมูล  ✏️")
+        print_menu("4. ลบข้อมูล  🗑️")
+        print_menu("5. ค้นหาข้อมูล  🔍")
+        print_menu("6. อธิบายโปรแกรม  📖")
+        print_menu("7. ออกจากโปรแกรม  ❌")
         
+        # รับค่าจากผู้ใช้
         choice = input(Fore.GREEN + "กรุณาเลือกตัวเลือก (1/2/3/4/5/6): ")
 
         if choice == '1':
@@ -45,7 +43,7 @@ def main_menu():
         elif choice == '6':
             explain_program()
         elif choice == '7':
-            print(Fore.YELLOW + "ออกจากโปรแกรม  👋")
+            print_alarm("ออกจากโปรแกรม  👋")
             break
         else:
-            print(Fore.RED + "กรุณาเลือกตัวเลือกที่ถูกต้อง! " + Style.BRIGHT)
+            print_error("กรุณาเลือกตัวเลือกที่ถูกต้อง! " + Style.BRIGHT)
