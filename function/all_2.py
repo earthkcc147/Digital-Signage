@@ -214,6 +214,8 @@ def add_data(file_path):
 
 
 
+
+
 # ฟังก์ชันแก้ไขข้อมูล
 def edit_data(file_path):
     # อ่านไฟล์ถ้ามีอยู่
@@ -278,15 +280,29 @@ def edit_data(file_path):
     ))
 
     # แก้ไขข้อมูล
-    item = input(f"กรุณาใส่รายการใหม่ (ปัจจุบัน: {entry['รายการ']}): ").strip()
-    serial_number = input(f"กรุณาใส่ s/n ใหม่ (ปัจจุบัน: {entry['s/n']}): ").strip()
-    symptom = input(f"กรุณาใส่อาการใหม่ (ปัจจุบัน: {entry['อาการ']}): ").strip()
+    item = colored_input(f"กรุณาใส่รายการใหม่ (ปัจจุบัน: {entry['รายการ']} หรือกรอก 00 เพื่อยกเลิก): ").strip()
+    if item == "00":
+        print_complete("✅ ยกเลิกการแก้ไขข้อมูล ✅")
+        return
+
+    serial_number = colored_input(f"กรุณาใส่ s/n ใหม่ (ปัจจุบัน: {entry['s/n']} หรือกรอก 00 เพื่อยกเลิก): ").strip()
+    if serial_number == "00":
+        print_complete("✅ ยกเลิกการแก้ไขข้อมูล ✅")
+        return
+
+    symptom = colored_input(f"กรุณาใส่อาการใหม่ (ปัจจุบัน: {entry['อาการ']} หรือกรอก 00 เพื่อยกเลิก): ").strip()
+    if symptom == "00":
+        print_complete("✅ ยกเลิกการแก้ไขข้อมูล ✅")
+        return
 
     # ถ้าอาการไม่กรอกให้กำหนดเป็น 'จอปกติดี'
     if not symptom:
         symptom = "จอปกติดี"
 
-    screen_size = input(f"กรุณาใส่ขนาดจอใหม่ (ปัจจุบัน: {entry['ขนาดจอ']}): ").strip()
+    screen_size = colored_input(f"กรุณาใส่ขนาดจอใหม่ (ปัจจุบัน: {entry['ขนาดจอ']} หรือกรอก 00 เพื่อยกเลิก): ").strip()
+    if screen_size == "00":
+        print_complete("✅ ยกเลิกการแก้ไขข้อมูล ✅")
+        return
 
     # ถ้าไม่กรอกขนาดจอให้กำหนดเป็น 'ไม่ระบุ'
     if not screen_size:
@@ -305,7 +321,7 @@ def edit_data(file_path):
     with open(file_path, 'w', encoding='utf-8') as file:
         json.dump(data, file, ensure_ascii=False, indent=4)
 
-    print(f"ข้อมูลของลำดับ {edit_index} ได้รับการอัปเดตเรียบร้อยแล้ว!")
+    print_complete(f"✅ ข้อมูลของลำดับ {edit_index} ได้รับการอัปเดตเรียบร้อยแล้ว! ✅")
 
 
 
