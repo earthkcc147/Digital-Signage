@@ -5,6 +5,12 @@ init(autoreset=True)
 
 # ฟังก์ชันกำหนดสีสำหรับข้อความต่างๆ
 
+
+# ฟังก์ชันพิมพ์เส้นคั่น โดยใช้สีที่กำหนด
+def print_line(color=Fore.MAGENTA, length=100):
+    print(color + "-" * length + Style.RESET_ALL)
+
+
 # ฟังก์ชันพิมพ์ข้อความหัวข้อ (header) โดยใช้สีเหลืองและตัวหนา
 def print_header(text):
     print(Fore.YELLOW + Style.BRIGHT + "\033[1m" + text + "\033[0m")
