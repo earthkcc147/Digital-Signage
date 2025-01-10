@@ -1,5 +1,5 @@
-from function.initialize import initialize_file
-from function.list_files import list_files_in_folder
+from function.initialize_file import initialize_file
+from function.list_files_in_folder import list_files_in_folder
 from function.select_file import select_file
 from function.add_data2 import add_datap
 from function.display_data2 import display_data
