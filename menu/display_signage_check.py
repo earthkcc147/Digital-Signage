@@ -1,9 +1,9 @@
 from function.initialize import initialize_file
-from function.add_data2 import add_data
-from function.display_data import display_data
 from function.list_files import list_files_in_folder
 from function.select_file import select_file
-from function.edit_data import edit_data
+from function.add_data2 import add_datap
+from function.display_data2 import display_data
+from function.edit_data2 import edit_data
 
 
 # ฟังก์ชันหลัก
