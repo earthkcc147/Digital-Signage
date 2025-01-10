@@ -7,7 +7,6 @@ from function.delete_data2 import delete_data
 from function.edit_data2 import edit_data
 from function.search_data2 import search_data
 
-
 # ฟังก์ชันหลัก
 def main_menu():
     # เลือกไฟล์
