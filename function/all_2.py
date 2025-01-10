@@ -128,7 +128,7 @@ def display_data(file_path):
                         entry["วันที่และเวลาที่ตรวจ"]
                     ))
             else:
-                print_error("⚠️ ไม่มีข้อมูลในระบบ ⚠️")
+                print_alarm("⚠️ ไม่มีข้อมูลในระบบ ⚠️")
     else:
         print_error("❌ ไม่พบไฟล์ข้อมูลหรือไฟล์เสียหาย ❌")
 
