@@ -30,7 +30,7 @@ def center_text(text):
 
 
 # สร้างข้อความ ASCII art ด้วย pyfiglet
-intro = pyfiglet.figlet_format("Check\n Display Signage", font="calvin_s", width=80)
+intro = pyfiglet.figlet_format("Check\n Display Signage\n", font="calvin_s", width=80)
 
 # ฟังก์ชันแสดงข้อความพร้อมดีเลย์
 def check_display_signage():
