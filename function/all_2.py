@@ -89,7 +89,7 @@ def select_file():
                     print_complete(f"ไฟล์ {filename} มีอยู่แล้ว ไม่ต้องสร้างใหม่.")
                     return filename
                 else:
-                    print_alarm(f"ไฟล์ {filename} ไม่มีในโฟลเดอร์ 'check'. สร้างไฟล์ใหม่...")
+                    print_complete(f"ไฟล์ {filename} ไม่มีในโฟลเดอร์ 'check'. สร้างไฟล์ใหม่...")
                     return filename
 
     except FileNotFoundError:
