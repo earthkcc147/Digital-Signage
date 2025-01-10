@@ -1,4 +1,4 @@
-from menu import main_menu
+from menu import *
 
 
 if __name__ == "__main__":
