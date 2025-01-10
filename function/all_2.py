@@ -1,8 +1,17 @@
 import os
 import json
 import datetime
+from function.colour import (
+    print_header, 
+    print_menu, 
+    print_alarm, 
+    print_error, 
+    print_other
+)
+
 
 FOLDER_NAME = 'check'
+
 
 
 # ฟังก์ชันตรวจสอบและสร้างโฟลเดอร์และไฟล์ถ้ายังไม่มี
@@ -10,7 +19,8 @@ def initialize_file(filename):
     # ตรวจสอบและสร้างโฟลเดอร์ถ้ายังไม่มี
     if not os.path.exists(FOLDER_NAME):
         os.makedirs(FOLDER_NAME)
-        print(f"สร้างโฟลเดอร์ {FOLDER_NAME} เรียบร้อยแล้ว")
+
+        print_header(f"สร้างโฟลเดอร์ {FOLDER_NAME} เรียบร้อยแล้ว")
 
     # สร้างไฟล์ในโฟลเดอร์ถ้ายังไม่มี
     file_path = os.path.join(FOLDER_NAME, filename)
