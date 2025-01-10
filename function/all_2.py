@@ -33,6 +33,9 @@ def initialize_file(filename):
 
 
 import openpyxl
+from openpyxl.styles import Alignment
+import os
+import json
 
 EXCEL_FOLDER = 'exel'
 
@@ -99,13 +102,14 @@ def convert_json_to_xlsx():
         ws = wb.active
         ws.title = "Data"
 
-        # ตั้งชื่อแผ่นงานให้ตรงกับชื่อไฟล์โดยไม่มีนามสกุล
-        # sheet_name = os.path.splitext(filename)[0]  # เอาชื่อไฟล์ที่ไม่มีนามสกุล
-        # ws.title = sheet_name
-
         # กำหนดหัวข้อคอลัมน์ (ไม่รวม "วันที่และเวลาที่ตรวจ")
         columns = ["ลำดับ", "รายการ", "S/N", "อาการ", "ขนาดจอ"]
         ws.append(columns)
+
+        # ตั้งค่าการจัดตำแหน่งให้ข้อมูลอยู่กลางเซลล์
+        for col in ws.columns:
+            for cell in col:
+                cell.alignment = Alignment(horizontal="center", vertical="center")
 
         # ใส่ข้อมูลจาก JSON (ไม่รวม "วันที่และเวลาที่ตรวจ")
         for entry in data:
