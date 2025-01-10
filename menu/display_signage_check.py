@@ -6,6 +6,7 @@ from colorama import init, Fore, Style, Back
 
 # ฟังก์ชันหลัก
 def main_menu():
+    print_line()
     # เลือกไฟล์
     filename = select_file()
 
