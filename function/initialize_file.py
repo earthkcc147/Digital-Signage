@@ -1,3 +1,6 @@
+from . import FOLDER_NAME  # ดึงตัวแปร FOLDER_NAME จาก __init__.py
+
+
 # ฟังก์ชันตรวจสอบและสร้างโฟลเดอร์และไฟล์ถ้ายังไม่มี
 def initialize_file(filename):
     # ตรวจสอบและสร้างโฟลเดอร์ถ้ายังไม่มี
