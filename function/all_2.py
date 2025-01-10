@@ -117,7 +117,7 @@ def display_data(file_path):
                 print("\n{:<5} {:<20} {:<15} {:<30} {:<20} {:<20}".format(
                     "ลำดับ", "รายการ", "S/N", "อาการ", "ขนาดจอ", "วันที่และเวลาที่ตรวจ"
                 ))
-                print_line2("-" * 100)
+                print_line()
                 for entry in data:
                     print("{:<5} {:<20} {:<15} {:<30} {:<20} {:<20}".format(
                         entry["ลำดับ"],
