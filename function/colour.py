@@ -38,7 +38,7 @@ def colored_input(prompt, color=Fore.GREEN):
 
 
 # ฟังก์ชันสำหรับรับ input และกำหนดสีให้ข้อความ โดยมีข้อความในวงเล็บเป็นสีเหลืองและตัวหนา
-def colored_input2(prompt, color=Fore.GREEN):
+def colored_input1(prompt, color=Fore.GREEN):
     # หาคำในวงเล็บ
     start = prompt.find("(")
     end = prompt.find(")")
@@ -51,6 +51,34 @@ def colored_input2(prompt, color=Fore.GREEN):
         prompt = before + Fore.YELLOW + "\033[1m" + f"({in_brackets})" + "\033[0m" + Style.RESET_ALL + after
     
     return input(color + prompt + Style.RESET_ALL).strip().lower()
+
+
+
+
+def colored_input2(prompt, color=Fore.GREEN):
+    # หาคำในวงเล็บ
+    start = prompt.find("(")
+    end = prompt.find(")")
+    if start != -1 and end != -1:
+        # แยกข้อความในวงเล็บและนอกวงเล็บ
+        before = prompt[:start]
+        in_brackets = prompt[start+1:end]
+        after = prompt[end+1:]
+        # เปลี่ยนข้อความในวงเล็บเป็นสีเหลืองและตัวหนา
+        prompt = before + Fore.YELLOW + "\033[1m" + f"({in_brackets})" + "\033[0m" + Style.RESET_ALL + after
+    
+    # รับค่า input จากผู้ใช้
+    user_input = input(color + prompt + Style.RESET_ALL).strip().lower()
+    
+    # ตรวจสอบอักษรที่ต้องการเปลี่ยนสี
+    if user_input == '00' or user_input == 'y' or user_input == 'n' or user_input == '':
+        # แสดงเป็นสีแดงสำหรับค่าที่ตรวจจับ
+        return Fore.RED + user_input + Style.RESET_ALL
+    return user_input
+
+# ตัวอย่างการใช้
+symptom_choice = colored_input2("กรุณาเลือกอาการจอ (y = จอปกติ, n = ไม่ระบุ, หรือกรอกเอง): ")
+print("คุณเลือก: " + symptom_choice)
 
 
 
