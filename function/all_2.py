@@ -47,6 +47,7 @@ def list_files_in_folder():
             print_number(f"{idx}. {file}\n")
     else:
         print_error("❌ ยังไม่มีไฟล์ในโฟลเดอร์ ❌\n")
+        print_line()
 
 
 
