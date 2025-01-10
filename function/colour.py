@@ -61,8 +61,8 @@ def colored_input1(prompt, color=Fore.GREEN):
 def colored_input2(prompt, color=Fore.GREEN):
     # กำหนดคำที่ต้องการเปลี่ยนสี
     prompt = prompt.replace("Enter", Fore.YELLOW + "\033[1m" + "Enter" + "\033[0m")
-    prompt = prompt.replace("y", Fore.ORANGE + "y" + Style.RESET_ALL)
-    prompt = prompt.replace("n", Fore.ORANGE + "n" + Style.RESET_ALL)
+    prompt = prompt.replace("y", Fore.RED + "y" + Style.RESET_ALL)
+    prompt = prompt.replace("n", Fore.RED + "n" + Style.RESET_ALL)
     
     # หาคำในวงเล็บ
     start = prompt.find("(")
