@@ -129,10 +129,13 @@ def display_data(file_path):
                         entry["ขนาดจอ"],
                         entry["วันที่และเวลาที่ตรวจ"]
                     ))
+                print_line()
             else:
                 print_alarm("⚠️ ไม่มีข้อมูลในระบบ ⚠️\n")
+                print_line()
     else:
         print_error("❌ ไม่พบไฟล์ข้อมูลหรือไฟล์เสียหาย ❌\n")
+        print_line()
 
 
 
