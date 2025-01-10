@@ -1,10 +1,8 @@
 import os
 import json
 import datetime
-from function import FOLDER_NAME
 
-
-# FOLDER_NAME = 'check'
+FOLDER_NAME = 'check'
 
 
 # ฟังก์ชันตรวจสอบและสร้างโฟลเดอร์และไฟล์ถ้ายังไม่มี
