@@ -23,6 +23,7 @@ def initialize_file(filename):
         print_complete(f"\n✅ สร้างไฟล์ {file_path} เรียบร้อยแล้ว ✅")
     else:
         print_error(f"❌ ไฟล์ {file_path} มีอยู่แล้ว ไม่ต้องสร้างใหม่ ❌")
+        print_line()
 
     return file_path
 
