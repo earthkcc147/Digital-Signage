@@ -529,7 +529,32 @@ def search_data(file_path):
 
 
 
+# ฟังก์ชันลบไฟล์พร้อมการยืนยัน
+def delete_file():
+    try:
+        # รับชื่อไฟล์จากผู้ใช้
+        file_name = colored_input("กรุณากรอกชื่อไฟล์ที่ต้องการลบ: ").strip()
+        file_path = os.path.join(FOLDER_NAME, file_name)
 
+        # ตรวจสอบว่าไฟล์มีอยู่หรือไม่
+        if os.path.exists(file_path):
+            # แสดงข้อมูลในไฟล์
+            print(f"\nข้อมูลในไฟล์ {file_name}:")
+            display_data(file_path)
+
+            # ขอการยืนยันจากผู้ใช้
+            confirm = colored_input("\nคุณต้องการลบไฟล์นี้ใช่หรือไม่? (y/n): ").strip().lower()
+            if confirm == 'y':
+                # ลบไฟล์
+                os.remove(file_path)
+                print_complete(f"✅ ลบไฟล์ {file_name} เรียบร้อยแล้ว ✅")
+            else:
+                print("❌ การลบไฟล์ถูกยกเลิก ❌")
+        else:
+            print_error(f"❌ ไม่พบไฟล์ {file_name} ในโฟลเดอร์ '{FOLDER_NAME}' ❌")
+
+    except Exception as e:
+        print_error(f"❌ เกิดข้อผิดพลาดในการลบไฟล์: {e} ❌")
 
 
 
