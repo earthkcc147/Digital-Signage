@@ -668,6 +668,8 @@ def delete_file_from_folder():
             print_complete("✅ ยกเลิกการลบไฟล์ ✅")
     else:
         print_error("❌ ไม่มีไฟล์ในโฟลเดอร์สำหรับลบ ❌")
+    
+    select_file()
 
 
 
