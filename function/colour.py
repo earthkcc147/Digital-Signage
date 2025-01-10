@@ -1,5 +1,8 @@
 from colorama import Fore, Style
 
+# เริ่มต้น colorama
+init(autoreset=True)
+
 # ฟังก์ชันกำหนดสีสำหรับข้อความต่างๆ
 def print_header(text):
     print(Fore.YELLOW + Style.BRIGHT + "\033[1m" + text + "\033[0m")
