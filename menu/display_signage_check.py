@@ -46,7 +46,7 @@ def main_menu():
         elif choice == '6':
             explain_program()
         elif choice == '7':
-            delete_file()  # เรียกฟังก์ชัน delete_file() ที่แสดงข้อมูลและลบไฟล์
+            delete_file_from_folder() 
         elif choice == '8':
             convert_json_to_xlsx()  # เรียกฟังก์ชันแปลงไฟล์
         elif choice == '00':
