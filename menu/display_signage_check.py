@@ -3,7 +3,9 @@ from function.list_files import list_files_in_folder
 from function.select_file import select_file
 from function.add_data2 import add_datap
 from function.display_data2 import display_data
+from function.delete_data2 import delete_data
 from function.edit_data2 import edit_data
+from function.search_data2 import search_data
 
 
 # ฟังก์ชันหลัก
