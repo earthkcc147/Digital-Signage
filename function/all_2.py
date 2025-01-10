@@ -169,7 +169,7 @@ def add_data(file_path):
 
     # รับข้อมูลอาการ (ให้เลือกจาก y, n หรือกรอกเอง)
     while True:
-        symptom_choice = colored_input("กรุณาเลือกอาการจอ (y = จอปกติ, n = ไม่ระบุ, หรือกรอกเอง): ").strip().lower()
+        symptom_choice = colored_input2("กรุณาเลือกอาการจอ (y = จอปกติ, n = ไม่ระบุ, หรือกรอกเอง): ").strip().lower()
         
         if symptom_choice == 'y':
             symptom = "จอปกติดี"
