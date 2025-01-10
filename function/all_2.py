@@ -150,22 +150,22 @@ def add_data(file_path):
 
     # รับข้อมูลจากผู้ใช้ (ตรวจสอบให้ "รายการ" และ "s/n" ไม่ว่าง)
     while True:
-        item = input("กรุณาใส่รายการ: ").strip()
+        item = colored_input("กรุณาใส่รายการ: ").strip()
         if not item:
-            print("กรุณาใส่รายการ ไม่สามารถปล่อยว่างได้!")
+            print_alarm("⚠️ กรุณาใส่รายการ ไม่สามารถปล่อยว่างได้! ⚠️")
         else:
             break
 
     while True:
-        serial_number = input("กรุณาใส่ s/n: ").strip()
+        serial_number = colored_input("กรุณาใส่ s/n: ").strip()
         if not serial_number:
-            print("กรุณาใส่ s/n ไม่สามารถปล่อยว่างได้!")
+            print_alarm("⚠️ กรุณาใส่ s/n ไม่สามารถปล่อยว่างได้! ⚠️")
         else:
             break
 
     # รับข้อมูลอาการ (ให้เลือกจาก y, n หรือกรอกเอง)
     while True:
-        symptom_choice = input("กรุณาเลือกอาการจอ (y = จอปกติ, n = ไม่ระบุ, หรือกรอกเอง): ").strip().lower()
+        symptom_choice = colored_input("กรุณาเลือกอาการจอ (y = จอปกติ, n = ไม่ระบุ, หรือกรอกเอง): ").strip().lower()
         
         if symptom_choice == 'y':
             symptom = "จอปกติดี"
@@ -177,11 +177,11 @@ def add_data(file_path):
             symptom = symptom_choice  # ถ้ากรอกเอง
             break
         else:
-            print("กรุณาเลือกอาการที่ถูกต้อง!")
+            print_alarm("⚠️ กรุณาเลือกอาการที่ถูกต้อง! ⚠️")
 
     # รับข้อมูลขนาดจอ (เลือก n สำหรับ 'ไม่ระบุ')
     while True:
-        screen_size = input("กรุณาใส่ขนาดจอ (ถ้าไม่ระบุให้ใส่ n): ").strip().lower()
+        screen_size = colored_input("กรุณาใส่ขนาดจอ (ถ้าไม่ระบุให้ใส่ n): ").strip().lower()
         
         if screen_size == 'n':
             screen_size = "ไม่ระบุ"
@@ -189,7 +189,7 @@ def add_data(file_path):
         elif screen_size:
             break  # ถ้ามีการกรอกขนาดจอเอง
         else:
-            print("กรุณาใส่ขนาดจอหรือเลือก 'n' สำหรับไม่ระบุ!")
+            print_alarm("⚠️ กรุณาใส่ขนาดจอหรือเลือก 'n' สำหรับไม่ระบุ! ⚠️")
 
     timestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
@@ -208,7 +208,7 @@ def add_data(file_path):
     with open(file_path, 'w', encoding='utf-8') as file:
         json.dump(data, file, ensure_ascii=False, indent=4)
 
-    print("บันทึกข้อมูลสำเร็จ!")
+    print_complete("✅ บันทึกข้อมูลสำเร็จ! ✅")
 
 
 
