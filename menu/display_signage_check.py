@@ -3,6 +3,7 @@ import os
 import json
 import datetime
 from function import print_header, print_menu, print_alarm, print_error
+from colorama import init, Fore, Style, Back
 
 # ฟังก์ชันหลัก
 def main_menu():
