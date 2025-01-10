@@ -10,6 +10,9 @@ init(autoreset=True)
 def print_line(color=Fore.MAGENTA, length=100):
     print(color + "-" * length + Style.RESET_ALL)
 
+def print_line2(text):
+    print(Fore.MAGENTA + Style.BRIGHT + text)
+
 
 # ฟังก์ชันพิมพ์ข้อความหัวข้อ (header) โดยใช้สีเหลืองและตัวหนา
 def print_header(text):
