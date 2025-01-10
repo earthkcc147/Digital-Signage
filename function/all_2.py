@@ -83,7 +83,7 @@ def convert_json_to_xlsx():
         # แสดงการยืนยันก่อนการแปลง
         while True:
             confirm = colored_input(f"⚠️ คุณต้องการแปลงไฟล์ {filename} เป็น {excel_filename} ไหม? (y/n): ").strip().lower()
-            
+
             if confirm == 'y':
                 break  # ถ้าผู้ใช้กรอก 'y' จะออกจากลูปและทำการแปลงไฟล์
             elif confirm == 'n':
@@ -99,19 +99,18 @@ def convert_json_to_xlsx():
         ws = wb.active
         ws.title = "Data"
 
-        # กำหนดหัวข้อคอลัมน์
-        columns = ["ลำดับ", "รายการ", "S/N", "อาการ", "ขนาดจอ", "วันที่และเวลาที่ตรวจ"]
+        # กำหนดหัวข้อคอลัมน์ (ไม่รวม "วันที่และเวลาที่ตรวจ")
+        columns = ["ลำดับ", "รายการ", "S/N", "อาการ", "ขนาดจอ"]
         ws.append(columns)
 
-        # ใส่ข้อมูลจาก JSON
+        # ใส่ข้อมูลจาก JSON (ไม่รวม "วันที่และเวลาที่ตรวจ")
         for entry in data:
             row = [
                 entry.get("ลำดับ", ""),
                 entry.get("รายการ", ""),
                 entry.get("s/n", ""),
                 entry.get("อาการ", ""),
-                entry.get("ขนาดจอ", ""),
-                entry.get("วันที่และเวลาที่ตรวจ", "")
+                entry.get("ขนาดจอ", "")
             ]
             ws.append(row)
 
