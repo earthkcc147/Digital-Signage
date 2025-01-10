@@ -29,7 +29,7 @@ def colored_input(prompt, color=Fore.GREEN):
 
 
 # ฟังก์ชันสำหรับรับ input และกำหนดสีให้ข้อความ โดยมีข้อความในวงเล็บเป็นสีเหลือง
-def colored_input2(prompt):
+def colored_input2(prompt, color=Fore.GREEN):
     # หาคำในวงเล็บ
     start = prompt.find("(")
     end = prompt.find(")")
@@ -41,7 +41,7 @@ def colored_input2(prompt):
         # เปลี่ยนข้อความในวงเล็บเป็นสีเหลือง
         prompt = before + Fore.YELLOW + f"({in_brackets})" + Style.RESET_ALL + after
     
-    return input(prompt).strip().lower()
+    return input(color + prompt + Style.RESET_ALL).strip().lower()
 
 
 
