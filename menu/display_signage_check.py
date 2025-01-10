@@ -7,6 +7,8 @@ import datetime
 
 # ฟังก์ชันหลัก
 def main_menu():
+
+    explain_program()
     # เลือกไฟล์
     filename = select_file()
 
