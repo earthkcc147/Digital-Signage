@@ -12,6 +12,13 @@ def print_header(text):
 def print_number(text):
     print(Fore.CYAN + Style.BRIGHT + "\033[1m" + text + "\033[0m")
 
+
+# ฟังก์ชันสำหรับรับ input และกำหนดสีให้ข้อความ (โดยมีค่าเริ่มต้นเป็นสีเขียว)
+def colored_input(prompt, color=Fore.GREEN):
+    # ใช้ colorama เพื่อแสดงข้อความในสีที่กำหนดและรีเซ็ตสีหลังจากรับค่า
+    return input(color + prompt + Style.RESET_ALL)
+
+
 # ฟังก์ชันพิมพ์ข้อความเมนู (menu) โดยใช้สีน้ำเงินอ่อนและตัวอักษรหนา
 def print_menu(text):
     print(Fore.CYAN + Style.BRIGHT + text)
