@@ -9,6 +9,9 @@ init(autoreset=True)
 def print_header(text):
     print(Fore.YELLOW + Style.BRIGHT + "\033[1m" + text + "\033[0m")
 
+def print_number(text):
+    print(Fore.CYAN + Style.BRIGHT + "\033[1m" + text + "\033[0m")
+
 # ฟังก์ชันพิมพ์ข้อความเมนู (menu) โดยใช้สีน้ำเงินอ่อนและตัวอักษรหนา
 def print_menu(text):
     print(Fore.CYAN + Style.BRIGHT + text)
