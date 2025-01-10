@@ -22,9 +22,11 @@ def print_line(color=Fore.MAGENTA):
 
 
 
-# ฟังก์ชันพิมพ์ข้อความหัวข้อ (header) โดยใช้สีเหลืองและตัวหนา
+# ฟังก์ชันพิมพ์ข้อความหัวข้อ (header) โดยใช้สีเหลืองและตัวหนา พร้อมความสว่างที่มากขึ้น
 def print_header(text):
-    print(Fore.BLUE + Style.BRIGHT + "\033[1m" + text + "\033[0m")
+    print(Fore.BLUE + Style.BRIGHT + "\033[1m" + "\033[1m" + text + "\033[0m")
+
+
 
 def print_number(text):
     print(Fore.CYAN + Style.BRIGHT + "\033[1m" + text + "\033[0m")
