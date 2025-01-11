@@ -50,7 +50,7 @@ def colored_input2(prompt, color=Fore.GREEN):
         # เปลี่ยนข้อความในวงเล็บเป็นสีเหลืองและตัวหนา
         prompt = before + Fore.YELLOW + "\033[1m" + f"({in_brackets})" + "\033[0m" + Style.RESET_ALL + after
     
-    return input(color + prompt + Style.RESET_ALL).strip().lower()
+    return input(color + prompt + Style.RESET_ALL).strip() # .lower() ลบ lower 
 
 
 
