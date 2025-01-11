@@ -33,7 +33,8 @@ def initialize_file(filename):
 
 
 import openpyxl
-from openpyxl.styles import Alignment
+from openpyxl.styles import Alignment, Font
+from openpyxl.utils import get_column_letter
 import os
 import json
 
@@ -102,20 +103,11 @@ def convert_json_to_xlsx():
         ws = wb.active
         ws.title = "Data"
 
-        # ตั้งชื่อแผ่นงานให้ตรงกับชื่อไฟล์โดยไม่มีนามสกุล
-        # sheet_name = os.path.splitext(filename)[0]  # เอาชื่อไฟล์ที่ไม่มีนามสกุล
-        # ws.title = sheet_name
-
-        # กำหนดหัวข้อคอลัมน์ (ไม่รวม "วันที่และเวลาที่ตรวจ")
+        # ตั้งชื่อหัวข้อคอลัมน์
         columns = ["ลำดับ", "รายการ", "S/N", "อาการ", "ขนาดจอ"]
         ws.append(columns)
 
-        # ตั้งค่าการจัดตำแหน่งให้ข้อมูลอยู่กลางเซลล์
-        for col in ws.columns:
-            for cell in col:
-                cell.alignment = Alignment(horizontal="center", vertical="center")
-
-        # ใส่ข้อมูลจาก JSON (ไม่รวม "วันที่และเวลาที่ตรวจ")
+        # ใส่ข้อมูลจาก JSON
         for entry in data:
             row = [
                 entry.get("ลำดับ", ""),
@@ -126,7 +118,18 @@ def convert_json_to_xlsx():
             ]
             ws.append(row)
 
-        # ถ้ามีไฟล์ Excel อยู่แล้ว ให้เขียนทับไฟล์นั้น
+        # จัดการการจัดตำแหน่งและปรับขนาดคอลัมน์
+        for col_num, column_title in enumerate(columns, start=1):
+            col_letter = get_column_letter(col_num)
+            ws.column_dimensions[col_letter].auto_size = True  # ปรับขนาดอัตโนมัติ
+            ws[f"{col_letter}1"].alignment = Alignment(horizontal="center", vertical="center")  # จัดหัวข้อกลาง
+            ws[f"{col_letter}1"].font = Font(bold=True)  # ทำให้หัวข้อเป็นตัวหนา
+
+        for row in ws.iter_rows(min_row=2, max_row=ws.max_row, min_col=1, max_col=len(columns)):
+            for cell in row:
+                cell.alignment = Alignment(horizontal="center", vertical="center")  # จัดข้อมูลให้อยู่กลาง
+
+        # บันทึกไฟล์ Excel
         wb.save(excel_path)
         print_complete(f"✅ แปลงไฟล์และบันทึกเป็น {excel_filename} เรียบร้อยแล้ว ✅")
         print_line()
