@@ -121,10 +121,22 @@ def convert_json_to_xlsx():
         # จัดการการจัดตำแหน่งและปรับขนาดคอลัมน์
         for col_num, column_title in enumerate(columns, start=1):
             col_letter = get_column_letter(col_num)
-            ws.column_dimensions[col_letter].auto_size = True  # ปรับขนาดอัตโนมัติ
-            ws[f"{col_letter}1"].alignment = Alignment(horizontal="center", vertical="center")  # จัดหัวข้อกลาง
-            ws[f"{col_letter}1"].font = Font(bold=True)  # ทำให้หัวข้อเป็นตัวหนา
+            max_length = len(column_title)  # เริ่มต้นด้วยความยาวของหัวข้อคอลัมน์
+            for row in ws.iter_rows(min_row=2, max_row=ws.max_row, min_col=col_num, max_col=col_num):
+                for cell in row:
+                    try:
+                        if cell.value:  # ตรวจสอบว่ามีค่าในเซลล์
+                            max_length = max(max_length, len(str(cell.value)))
+                    except:
+                        pass
+            # เพิ่มความกว้างเล็กน้อยเพื่อให้ดูสบายตา
+            ws.column_dimensions[col_letter].width = max_length + 2
 
+            # จัดหัวข้อคอลัมน์ให้อยู่กลางและเป็นตัวหนา
+            ws[f"{col_letter}1"].alignment = Alignment(horizontal="center", vertical="center")
+            ws[f"{col_letter}1"].font = Font(bold=True)
+
+        # จัดการการจัดตำแหน่งของข้อมูลในคอลัมน์
         for row in ws.iter_rows(min_row=2, max_row=ws.max_row, min_col=1, max_col=len(columns)):
             for cell in row:
                 cell.alignment = Alignment(horizontal="center", vertical="center")  # จัดข้อมูลให้อยู่กลาง
